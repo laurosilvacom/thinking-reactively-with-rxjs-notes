@@ -137,9 +137,11 @@ Let's name our `Observable` accordingly: `shouldHideSpinner`
 
 - we import the `filter` operator and use `pipe` to pass it to the current load count, and check that the count is equal to `0`
 
-  const shouldHideSpinner = currentLoadCount.pipe(
+```js
+const shouldHideSpinner = currentLoadCount.pipe(
   filter(count => count === 0);
-  );
+);
+```
 
 Now we can check when to **show \*\***our spinner...
 
@@ -157,7 +159,9 @@ So, we need to keep track of the previous count... But how?
 
 Here is our final `shouldShowSpinner` function:
 
-    const shouldShowSpinner = currentLoadCount.pipe(
-    	pairwise();
-    	filter(([prevCount, currCount]) => prevCount === 0 && currCount === 1)
-    )
+```js
+const shouldShowSpinner = currentLoadCount.pipe(
+   pairwise();
+   filter(([prevCount, currCount]) => prevCount === 0 && currCount === 1)
+)
+```
