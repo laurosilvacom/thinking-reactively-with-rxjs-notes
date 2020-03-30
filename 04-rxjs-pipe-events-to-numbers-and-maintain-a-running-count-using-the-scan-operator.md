@@ -128,28 +128,31 @@ import `merge` from rxjs to create a new `Observable`
 
 We can consider our problem solved if: we have an `observable` that gives the `currentLoadCount` of tasks in our app. So lets make it!
 
-    const currentLoadCount = loadVariations.pipe(
-    	scan((totalCurrentLoads, changeInLoads) => {
-    		return totalCurrentLoads + changeInLoads;
-    }, 0)
+```js
+const currentLoadCount = loadVariations.pipe(
+	scan((totalCurrentLoads, changeInLoads) => {
+		return totalCurrentLoads + changeInLoads;
+}, 0)
+
+```
 
 - `scan` should be imported from `rxjs/operators`, and accepts the same parameters as `reduce` in JS, including the starting value after the function (which is `0` here)
-
-We need to make `currentLoadCount` work as predictably as possible.
+- We need to make `currentLoadCount` work as predictably as possible.
 
 _Good abstractions are predicatable_
 
-We won't get anything until `currentLoadCount` emits something, so we need it to initially emit `0`
+- We won't get anything until `currentLoadCount` emits something, so we need it to initially emit `0`
 
-To accomplish this:
+- To accomplish this:
+  - import `startWith` from `rxjs/operators`
+  - add `startWith` to our `currentLoadCount` function like this:
 
-- import `startWith` from `rxjs/operators`
-- add `startWith` to our `currentLoadCount` function like this:
-
-  const currentLoadCount = loadVariations.pipe(
-  startWith(0);
-  scan((totalCurrentLoads, changeInLoads) => {
-  return totalCurrentLoads + changeInLoads;
+```js
+const currentLoadCount = loadVariations.pipe(
+    startWith(0);
+    scan((totalCurrentLoads, changeInLoads) => {
+    return totalCurrentLoads + changeInLoads;
   })
+```
 
   _We can now remove our starting value `0`, and let our `startsWith(0)` flow through the `scan` function to return `0` initially_
