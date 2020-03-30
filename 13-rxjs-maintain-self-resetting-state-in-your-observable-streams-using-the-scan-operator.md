@@ -280,8 +280,10 @@ const loadStats = currentLoadCount.pipe(
 - It turns out we don't have to think about resetting our stats...
 - We can tie the lifecycle of our `spinner` and `loadStats` together, so that both will be created and disposed of together
 
-  const spinnerWithStats = loadStats.pipe(
+```js
+const spinnerWithStats = loadStats.pipe(
   switchMap( stats => showSpinner(stats.total, stats.completed))
-  )
+)
+```
 
 - This ensures that the `loadStats` state is local to the instance of spinner that it is tied to
