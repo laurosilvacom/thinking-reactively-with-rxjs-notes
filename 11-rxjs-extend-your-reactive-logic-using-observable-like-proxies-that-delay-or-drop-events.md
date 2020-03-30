@@ -123,8 +123,8 @@ const shouldShowSpinner = spinnerActivated.pipe(
 
 ### **What if our async call is too quick to show the spinner?**
 
-- if an async call resolves too quickly the action of showing the spinner will appear as a glitch
-- we should only show the spinner once it's been active for at least 2 seconds... but how?
+- If an async call resolves too quickly the action of showing the spinner will appear as a glitch
+- We should only show the spinner once it's been active for at least 2 seconds... but how?
 
 **New Abstraction:** When the spinner becomes active, wait for 2 seconds before showing it. BUT cancel showing it, if it becomes inactive again in the meantime.
 
