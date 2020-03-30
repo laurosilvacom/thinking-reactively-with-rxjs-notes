@@ -112,7 +112,7 @@ Tasks could be:
 - a fetch request
 - etc
 
-To be widely applicable, we'll go generic and use a function called `newTaskStarted`
+**To be widely applicable, we'll go generic and use a function called `newTaskStarted`**
 - (and `existingTaskCompleted` for when a task is completed)
 - Change each `observable` to a `Subject`
 - Then, inside these functions, call the associated subject with `next()`
