@@ -106,7 +106,7 @@ const currentLoadCount = loadVariations.pipe(
 
 ### First Problem:
 
-How Do we Count?
+**How wo we Count?**
 
 - Start count from zero
 - when an async task starts, increase count by 1
@@ -124,7 +124,7 @@ import `merge` from rxjs to create a new `Observable`
 
 `**loadVariations` is now all we need to solve our problem!\*\*
 
-Cognitive demand is much lower when we only need to deal with fewer pieces of information, and they are intelligently designed/named so that we can easily understand what they do (re: the naming convention of `loadUp`, `loadDown` and `loadVariations`.
+**Cognitive demand is much lower when we only need to deal with fewer pieces of information**, and they are intelligently designed/named so that we can easily understand what they do (re: the naming convention of `loadUp`, `loadDown` and `loadVariations`.
 
 We can consider our problem solved if: we have an `observable` that gives the `currentLoadCount` of tasks in our app. So lets make it!
 
