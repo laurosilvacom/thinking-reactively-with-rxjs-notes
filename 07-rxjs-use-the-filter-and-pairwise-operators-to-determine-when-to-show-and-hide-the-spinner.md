@@ -133,8 +133,7 @@ const shouldShowSpinner = currentLoadCount.pipe(
   - hide when the async count gets to `0`
   - show when the async count goes from `0` to `1`
 
-Let's name our `Observable` accordingly: `shouldHideSpinner`
-
+- Let's name our `Observable` accordingly: `shouldHideSpinner`
 - we import the `filter` operator and use `pipe` to pass it to the current load count, and check that the count is equal to `0`
 
 ```js
@@ -149,15 +148,12 @@ Now we can check when to **show \*\***our spinner...
 - again, we listen on the `currentLoadCount`
 - and again, we use `filter`
 
-We _could_ filter and return any time the `count` is equal to `1`, but that's not really right
-
-_what about when the count goes from 2 to 1? We don't need to show the spinner again. We just need to know when to show the spinner initially, when the count goes from 0 to 1._
-
-So, we need to keep track of the previous count... But how?
-
+- We _could_ filter and return any time the `count` is equal to `1`, but that's not really right
+- _what about when the count goes from 2 to 1? We don't need to show the spinner again. We just need to know when to show the spinner initially, when the count goes from 0 to 1._
+- So, we need to keep track of the previous count... But how?
 - We can import the `pairwise` operator, which emits the previous and current count.
 
-Here is our final `shouldShowSpinner` function:
+- Here is our final `shouldShowSpinner` function:
 
 ```js
 const shouldShowSpinner = currentLoadCount.pipe(
