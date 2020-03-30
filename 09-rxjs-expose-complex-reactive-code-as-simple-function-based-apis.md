@@ -113,20 +113,16 @@ Tasks could be:
 - etc
 
 To be widely applicable, we'll go generic and use a function called `newTaskStarted`
-
-(and `existingTaskCompleted` for when a task is completed)
-
+- (and `existingTaskCompleted` for when a task is completed)
 - Change each `observable` to a `Subject`
 - Then, inside these functions, call the associated subject with `next()`
   - ie: `export function newTaskStarted() { taskStarts.next() }`
 
-Then we import these functions into our React app's "slow" component, and call the `newTaskStarted` function when the associated buttons are clicked.
+- Then we import these functions into our React app's "slow" component, and call the `newTaskStarted` function when the associated buttons are clicked.
+- We then call `existingTaskCompleted` inside of the `subscribe` for each `observable`.
+- We consider them completed whenever they emit
 
-We then call `existingTaskCompleted` inside of the `subscribe` for each `observable`.
-
-- we consider them completed whenever they emit
-
-Inside of our other "quick" component we are using promises. So in this case:
+- Inside of our other "quick" component we are using promises. So in this case:
 
 - call the `newTaskStarted` function right before the promise
 - and call `existingTaskCompleted` when the promise resolves
