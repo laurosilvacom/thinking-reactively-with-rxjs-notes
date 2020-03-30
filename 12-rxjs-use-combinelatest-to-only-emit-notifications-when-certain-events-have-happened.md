@@ -109,11 +109,13 @@ const shouldHideSpinner = combineLatest(spinnerDeactivated, flashThreshold);
 
 - Extract `timer(2000)` as our `flashThreshold`, or the minimum amount of time we want something to show on screen.... Replace any instance of `timer(2000)`
 
-  const flashThreshold = timer(2000)
+ ```js
+ const flashThreshold = timer(2000)
 
-  const shouldHideSpinner = combineLatest(
+ const shouldHideSpinner = combineLatest(
   spinnerDeactivated,
   flashThreshold
-  )
+ )
+ ```
 
 - Spinner now hides _either_ when it has been showing for 2 seconds, _or_ when the number of tasks reaches 0 (in the case when this takes _longer than 2 seconds_)
