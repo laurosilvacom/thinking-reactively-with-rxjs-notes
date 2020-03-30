@@ -53,13 +53,10 @@ shouldShowSpinner
 
 ### Highest Level of Abstraction Achieved! 🎉
 
-Now we can simply tackle our top level abstraction: showing the spinner until it's time to hide it...
-
-Currently, we consider `showSpinner` an `Observable` that when "activated" shows the spinner.
-
-_But_ we're not worrying about how it does that just yet.
-
-When a task starts, switch to displaying the spinner, until it's time to hide it...
+- Now we can simply tackle our top level abstraction: showing the spinner until it's time to hide it...
+- Currently, we consider `showSpinner` an `Observable` that when "activated" shows the spinner.
+- _But_ we're not worrying about how it does that just yet.
+- When a task starts, switch to displaying the spinner, until it's time to hide it...
 
     shouldShowSpinner.pipe(
     	switchMap(() => showSpinner.pipe(takeUntil(shouldHideSpinner)))
