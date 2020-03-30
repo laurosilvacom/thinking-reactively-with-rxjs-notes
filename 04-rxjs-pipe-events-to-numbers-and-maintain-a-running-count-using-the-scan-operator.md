@@ -106,11 +106,7 @@ const currentLoadCount = loadVariations.pipe(
 
 ### First Problem:
 
-**How wo we Count?**
-
-- Start count from zero
-- when an async task starts, increase count by 1
-- when a task ends, decrease count by 1
+**How do we Count?**
 
 Create a `loadUp` and `loadDown` `Observable` to emit 1 and -1 when tasks start or complete, using mapTo:
 
